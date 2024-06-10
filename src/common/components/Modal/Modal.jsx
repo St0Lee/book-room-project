@@ -1,17 +1,37 @@
 import { createPortal } from "react-dom";
+import { useEffect } from "react";
 import * as SC from "./modal.styled.js"
 
 const modalRoot = document.querySelector("#modal-root");
 
 export const Modal = ({children, toggleModal}) => {
+    
+    const closeModal = (event) => {
+        if(event.target === event.currentTarget){
+            toggleModal()
+        }
+    }
+    useEffect(() =>{
+        const closeOnKey = (event) => {
+            console.log(event.code)
+            if(event.code === "Escape"){
+                toggleModal()
+            }
+        }    
+        window.addEventListener("keydown", closeOnKey)
+        return () => {
+            window.removeEventListener("keydown", closeOnKey)
+        }
+    }, [toggleModal])
+
     return createPortal(
-        <div>
-            <div>
+        <SC.Overlay onClick={closeModal}>
+            <SC.Inner>
                 {children}
-                <button type="button" onClick={toggleModal}>
+                <SC.CloseBtn type="button" onClick={toggleModal}>
                     X
-                </button>
-            </div>
-        </div>, modalRoot
+                </ SC.CloseBtn>
+            </ SC.Inner>
+        </ SC.Overlay>, modalRoot
     )
 };
