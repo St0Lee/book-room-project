@@ -1,25 +1,24 @@
 import styled from 'styled-components';
 
 export const Overlay = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 20;
-
   background-color: ${p => p.theme.colors.backdropBackground};
 `;
 
 export const Inner = styled.div`
   position: absolute;
-  top: 50%;
+  top: 50%; 
   left: 50%;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, -50%);
   width: 500px;
   max-width: 1200px;
   max-height: auto;
-  background-color: ${p => p.theme.colors.modalBackground};
+  background-color: white;
 `;
 
 export const CloseBtn = styled.button`

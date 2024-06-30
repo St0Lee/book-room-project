@@ -1,7 +1,9 @@
+import { BooksList } from "./BooksList/BooksList"
+
 export const StorePage = () => {
     return (
         <>
-            <p>Store</p>
+            <BooksList />
         </>
     )
 }

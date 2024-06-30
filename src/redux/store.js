@@ -19,8 +19,19 @@ const cartPersistConfig = {
     whitelist: ["cart"],
   };
 
+const middleware = getDefaultMiddleware => [
+    ...getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+];
+
 export const store = configureStore({
     reducer: {
         [cartSlice.name]: persistReducer(cartPersistConfig, cartSlice.reducer),
-    }
+    },
+    middleware
 });
+
+export const persistor = persistStore(store);
