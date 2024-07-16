@@ -1,35 +1,35 @@
 [{
     "id": "1",
     "title": "Book 1",
-    "price": "$10",
+    "price": "10",
     "subtitle": "Class 1",
     "img": "https://book-room.com.ua/wp-content/uploads/2023/11/4555-300x300.jpg"
 },
 {
     "id": "2",
     "title": "Book 2",
-    "price": "$10",
+    "price": "20",
     "subtitle": "Class 2",
     "img": "https://book-room.com.ua/wp-content/uploads/2023/11/4555-300x300.jpg"
 },
 {
     "id": "3",
     "title": "Book 3",
-    "price": "$10",
+    "price": "30",
     "subtitle": "Class 3",
     "img": "https://book-room.com.ua/wp-content/uploads/2023/11/4555-300x300.jpg"
 },
 {
     "id": "4",
     "title": "Book 4",
-    "price": "$10",
+    "price": "40",
     "subtitle": "Class 4",
     "img": "https://book-room.com.ua/wp-content/uploads/2023/11/4555-300x300.jpg"
 },
 {
     "id": "5",
     "title": "Book 5",
-    "price": "$10",
+    "price": "50",
     "subtitle": "Class 5",
     "img": "https://book-room.com.ua/wp-content/uploads/2023/11/4555-300x300.jpg"
 }]

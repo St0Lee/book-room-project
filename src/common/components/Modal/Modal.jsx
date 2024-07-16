@@ -19,8 +19,10 @@ export const Modal = ({children, toggleModal}) => {
             }
         }    
         window.addEventListener("keydown", closeOnKey)
+        document.body.style.overflow = "hidden"
         return () => {
             window.removeEventListener("keydown", closeOnKey)
+            document.body.style.overflow = ""
         }
     }, [toggleModal])
 

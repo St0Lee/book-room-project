@@ -17,8 +17,10 @@ export const Inner = styled.div`
   transform: translate(-50%, -50%);
   width: 500px;
   max-width: 1200px;
-  max-height: auto;
-  background-color: white;
+  height: 500px;
+  background-color: grey;
+  overflow-y: auto;
+  /* background-color: white; */
 `;
 
 export const CloseBtn = styled.button`

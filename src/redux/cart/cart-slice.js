@@ -9,10 +9,15 @@ export const cartSlice = createSlice({
         setToCart:(state, {payload}) => {
             state.cart.push(payload)
         },
-        // getFromCart:() => {}, 
+        removeFromCart:(state, {payload}) => {
+            state.cart = state.cart.filter(item => item.id !== payload) 
+        },
+        changeCountCart: (state, {payload:{id, quantity}}) => {
+            state.cart = state.cart.map(item => item.id === id ? {...item, count: quantity} : item);
+        }
     }
 });
 
-export const {setToCart} = cartSlice.actions;
+export const {setToCart, removeFromCart, changeCountCart} = cartSlice.actions;
 
 export const getCarts = (state) => state.cart.cart;
