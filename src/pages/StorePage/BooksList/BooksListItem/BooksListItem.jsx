@@ -1,28 +1,18 @@
-import { useDispatch, useSelector } from "react-redux";
-import { setToCart, getCarts } from "../../../../redux/cart/cart-slice";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-
+import { BuyButton } from "../../../../common/components/BuyButton/BuyButton";
 
 export const BooksListItem = ({id, title, price, subtitle, img}) => {
-    const dispatch = useDispatch();
-
-    const books = useSelector(getCarts);
-    
-    const isInCart = books.find((book) => book.id === id)
-    
-    const handleClick = () => {
-        dispatch(setToCart({id, title, price, subtitle, img, count: 1}))
-    };
 
     return(
         <li>
-            <h2>{title}</h2>
-            <p>{price}</p> 
+            <Link to={`/books/${id}`}>
+                <h2>{title}</h2>
+                <img src={img} alt={title}/>
+            </Link>
             <h3>{subtitle}</h3>
-            <img src={img} alt={title}/>
-            <button type="button" onClick={handleClick} disabled={isInCart}>
-                {isInCart ? "Added to cart" : "Add to cart"}
-            </button> 
+            <p>{price}</p>
+            <BuyButton id={id} title={title} price={price} subtitle={subtitle} img={img}/>
         </li>
 )
 }
