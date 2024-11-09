@@ -28,6 +28,3 @@ export const Header = () => {
 //Тільки українська
 //Реєстрація - необов'язкова
 
-
-//Create container for content (paddings)
-

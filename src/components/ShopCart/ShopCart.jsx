@@ -3,7 +3,7 @@ import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa6";
 import { useState } from "react";
 import { Modal } from "../Modal/Modal";
-import { getCarts, removeFromCart, changeCountCart } from "../../../redux/cart/cart-slice";
+import { getCarts, removeFromCart, changeCountCart } from "../../redux/cart/cart-slice";
 import { useDispatch, useSelector } from "react-redux";
 import * as SC from "./shopCart.styled"
 

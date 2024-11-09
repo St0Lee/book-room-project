@@ -1,4 +1,4 @@
-import { Router } from "./common/config/routesConfig/router"
+import { Router } from "./config/routesConfig/router"
 
 function App() {
 

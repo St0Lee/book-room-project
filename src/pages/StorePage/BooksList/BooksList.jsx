@@ -1,4 +1,4 @@
-import allBooks from "../../../common/data/books.json"
+import allBooks from "../../../data/books.json"
 import { BooksListItem } from "./BooksListItem/BooksListItem";
 
 export const BooksList = () => {

@@ -22,4 +22,4 @@ export const Categories = () => {
             {isCategory && <ul>{categories.map(({id, text}) => <li key={id} onClick={handleChosenCategory}>{text}</li>)}</ul>}
         </div>
     )
-}
+};

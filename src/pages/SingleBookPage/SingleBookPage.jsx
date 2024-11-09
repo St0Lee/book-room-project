@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import allBooks from "../../common/data/books.json"
-import { BuyButton } from "../../common/components/BuyButton/BuyButton";
+import allBooks from "../../data/books.json"
+import { BuyButton } from "../../components/BuyButton/BuyButton";
 
 export const SingleBookPage = () => {
 

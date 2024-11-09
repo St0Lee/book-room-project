@@ -1,4 +1,4 @@
-import { Filters } from "../../common/components/Filters/Filters"
+import { Filters } from "../../components/Filters/Filters"
 import { BooksList } from "./BooksList/BooksList"
 
 export const StorePage = () => {

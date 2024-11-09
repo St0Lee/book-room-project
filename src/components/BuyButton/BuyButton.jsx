@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
-import { setToCart, getCarts } from "../../../redux/cart/cart-slice";
+import { setToCart, getCarts } from "../../redux/cart/cart-slice";
 
 export const BuyButton = ({id, title, price, subtitle, img}) => {
 

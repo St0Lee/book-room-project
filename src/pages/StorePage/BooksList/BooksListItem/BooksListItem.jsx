@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { BuyButton } from "../../../../common/components/BuyButton/BuyButton";
+import { BuyButton } from "../../../../components/BuyButton/BuyButton";
 
 export const BooksListItem = ({id, title, price, subtitle, img}) => {
 
