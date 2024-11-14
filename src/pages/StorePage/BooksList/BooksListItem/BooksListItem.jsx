@@ -13,6 +13,7 @@ export const BooksListItem = ({id, title, price, subtitle, img}) => {
             <h3>{subtitle}</h3>
             <p>{price}</p>
             <BuyButton id={id} title={title} price={price} subtitle={subtitle} img={img}/>
+            <button type="button">Обране</button>
         </li>
 )
 }

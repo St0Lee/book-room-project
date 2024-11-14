@@ -7,7 +7,9 @@ export const Layout = () => {
     return (
         <>
             <Header />
-            <Outlet />
+            <div style={{padding: "10px"}}>
+                <Outlet />
+            </div>
             <Footer />
         </>
     )
