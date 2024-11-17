@@ -9,9 +9,6 @@ export const BuyButton = ({id, title, price, subtitle, img}) => {
     const books = useSelector(getCarts);
 
     const isInCart = books.find((book) => book.id === id)
-    console.log(isInCart)
-    console.log(id)
-
 
     const handleClick = () => {
         dispatch(setToCart({id, title, price, subtitle, img, count: 1}))

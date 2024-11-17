@@ -5,10 +5,10 @@ export const Footer = () => {
     return(
         <SC.Wrap>
             <NavLink to={"/return-policy"}>
-                <p>Return Policy</p>
+                <SC.Text>Return Policy</SC.Text>
             </NavLink>
             <NavLink to={"/confidentiality-policy"}>
-                <p>Confidentiality Policy</p>
+                <SC.Text>Confidentiality Policy</SC.Text>
             </NavLink>
         </SC.Wrap>        
     )

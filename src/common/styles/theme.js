@@ -24,13 +24,13 @@ export const theme = Object.freeze({
     heading: 1.125,
   },
   colors: {
-    text: '#000',
+    text: '#1a0000',
+    primary: '#fddeba',
     statsText: '#ff9',
     linkActive: 'red',
     linkHover: 'black',
     backdropBackground: '#101510a1',
     modalBackground: '#fff',
-    primary: '#07c',
     secondary: '#30c',
 
     deletBtn: 'lightcoral',

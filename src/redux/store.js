@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit"; 
 import { cartSlice } from "./cart/cart-slice";
-import { favoriteSlice } from "./favorite/favorite";
+import { favoriteSlice } from "./favorite/favorite-slice";
 import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
 
