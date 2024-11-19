@@ -16,7 +16,7 @@ export const BooksListItem = ({id, title, price, subtitle, img}) => {
     const isInFavorite = favoriteItem.find((favorite) => favorite.id === id)
     
     const handleChangeFavorite = (id) => {
-        {isInFavorite ? dispatch(removeFromFavorite(id)) : dispatch(setToFavorite({id}))  }
+        {isInFavorite ? dispatch(removeFromFavorite(id)) : dispatch(setToFavorite({id, title, price, subtitle, img}))  }
     }
 
     return(

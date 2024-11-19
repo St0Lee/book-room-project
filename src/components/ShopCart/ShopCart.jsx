@@ -2,7 +2,7 @@ import { CiShoppingCart } from "react-icons/ci";
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa6";
 import { useState } from "react";
-import { Modal } from "../Modal/Modal";
+import { ModalCart } from "../Modal/modalCart/ModalCart";
 import { getCarts, removeFromCart, changeCountCart } from "../../redux/cart/cart-slice";
 import { useDispatch, useSelector } from "react-redux";
 import * as SC from "./shopCart.styled"
@@ -32,11 +32,11 @@ export const ShopCart = () => {
 
     return(
         <>
-            <button onClick={toggleModal}>
+            <SC.Btn onClick={toggleModal}>
                 <CiShoppingCart size={42} />
-            </button>
+            </SC.Btn>
             {isOpenModal && 
-                <Modal toggleModal={toggleModal}> 
+                <ModalCart  toggleModal={toggleModal}> 
                    {cartList.map(({id, title, price, subtitle, img, count}) => <li key={id}>   
                         <SC.Title>{title}</SC.Title>
                         <p>${+price * count}</p> 
@@ -51,7 +51,7 @@ export const ShopCart = () => {
                             Remove from Cart
                         </button> 
                     </li>)} 
-                </ Modal>}
+                </ ModalCart>}
         </>
     )
 }

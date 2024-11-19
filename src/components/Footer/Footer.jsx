@@ -1,15 +1,22 @@
-import { NavLink } from "react-router-dom";
+import { footerNavigation } from "../../helpers/footerNavigation";
 import * as SC from "./Footer.styled"
 
 export const Footer = () => {
     return(
         <SC.Wrap>
-            <NavLink to={"/return-policy"}>
-                <SC.Text>Return Policy</SC.Text>
-            </NavLink>
-            <NavLink to={"/confidentiality-policy"}>
-                <SC.Text>Confidentiality Policy</SC.Text>
-            </NavLink>
+            <SC.NavBarList>
+                {footerNavigation.map(({id, href, text}) =>
+                <li key={id}>
+                    <SC.NavLinkStyled to={href}>
+                        {text}
+                    </SC.NavLinkStyled>
+                </li>)}
+            </SC.NavBarList>
+            <ul>
+                <li>
+                    <a href="https://www.facebook.com">https://www.facebook.com</a>
+                </li>
+            </ul>
         </SC.Wrap>        
     )
 };

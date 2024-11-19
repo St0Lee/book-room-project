@@ -26,9 +26,8 @@ export const theme = Object.freeze({
   colors: {
     text: '#1a0000',
     primary: '#fddeba',
-    statsText: '#ff9',
     linkActive: 'red',
-    linkHover: 'black',
+    linkHover: '#660000',
     backdropBackground: '#101510a1',
     modalBackground: '#fff',
     secondary: '#30c',

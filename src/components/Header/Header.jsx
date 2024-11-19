@@ -1,5 +1,5 @@
 import { mainNavigation } from "../../helpers/mainNavigation"
-import { NavLink } from "react-router-dom";
+import { Favorite } from "../Favorite/Favorite.jsx";
 import { ShopCart } from "../ShopCart/ShopCart";
 
 import * as SC from "./Header.styled.js"
@@ -11,20 +11,23 @@ export const Header = () => {
             <SC.NavBarList>
                 {mainNavigation.map(({id, href, text}) => 
                 <li key={id}>
-                    <NavLink to={href}>
+                    <SC.NavLinkStyled to={href}>
                         {text}
-                    </NavLink>
+                    </SC.NavLinkStyled>
                 </li>)}
             </SC.NavBarList>
         </nav>
         <ShopCart />
+        <Favorite />
     </SC.NavBar>
    ) 
 };
 
-//Корзина - модальне вікно
+//Корзина - модальне вікно - done
 //Баннер - інший
-//Обране
+//Обране - done
 //Тільки українська
 //Реєстрація - необов'язкова
+
+//Обране - modal
 
