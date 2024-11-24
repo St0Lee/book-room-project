@@ -10,10 +10,10 @@ export const cartSlice = createSlice({
             state.cart.push(payload)
         },
         removeFromCart:(state, {payload}) => {
-            state.cart = state.cart.filter(item => item.id !== payload) 
+            state.cart = state.cart.filter(item => item._id !== payload) 
         },
-        changeCountCart: (state, {payload:{id, quantity}}) => {
-            state.cart = state.cart.map(item => item.id === id ? {...item, count: quantity} : item);
+        changeCountCart: (state, {payload:{_id, quantity}}) => {
+            state.cart = state.cart.map(item => item._id === _id ? {...item, count: quantity} : item);
         }
     }
 });

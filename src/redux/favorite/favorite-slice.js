@@ -10,7 +10,7 @@ export const favoriteSlice = createSlice({
             state.favorite.push(payload)
         },
         removeFromFavorite:(state, {payload}) => {
-            state.favorite = state.favorite.filter(item => item.id !== payload)
+            state.favorite = state.favorite.filter(item => item._id !== payload)
         }
         //кількість обраних книжок
     }

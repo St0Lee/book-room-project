@@ -1,6 +1,6 @@
 import { GoHeart } from "react-icons/go";
 import { useState } from "react";
-import { ModalFavorite } from "../Modal/modalFavorite/ModalFavorite";
+import { Modal } from "../Modal/Modal";
 import { getFavorite, removeFromFavorite } from "../../redux/favorite/favorite-slice";
 import { useDispatch, useSelector } from "react-redux";
 import * as SC from "./Favorite.styled"
@@ -15,8 +15,8 @@ export const Favorite = () => {
         setIsOpenModal(!isOpenModal)
     };
 
-    const handleRemoveItem = (id) => {
-        dispatch(removeFromFavorite(id))
+    const handleRemoveItem = (_id) => {
+        dispatch(removeFromFavorite(_id))
     };
 
     const favoriteList = useSelector(getFavorite);
@@ -27,17 +27,17 @@ export const Favorite = () => {
                 <GoHeart size={42} />
             </SC.Btn>
             {isOpenModal && 
-                <ModalFavorite  toggleModal={toggleModal}> 
-                   {favoriteList.map(({id, title, price, subtitle, img}) => <li key={id}>   
+                <Modal toggleModal={toggleModal}> 
+                   {favoriteList.map(({_id, title, price, category, imageURL}) => <li key={_id}>   
                         <SC.Title>{title}</SC.Title>
                         <p>${price}</p> 
-                        <h3>{subtitle}</h3>
-                        <img src={img}/>
-                        <button type="button" onClick={() => handleRemoveItem(id)} >
+                        {category.map((value) => <h3 key={value}>{value}</h3>) }
+                        <img width="300px" src={imageURL}/>
+                        <button type="button" onClick={() => handleRemoveItem(_id)} >
                             Прибрати з Бажаного
                         </button> 
                     </li>)} 
-                </ ModalFavorite>}
+                </Modal>}
         </>
     )
 }

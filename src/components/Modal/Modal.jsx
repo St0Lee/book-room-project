@@ -1,10 +1,10 @@
 import { createPortal } from "react-dom";
 import { useEffect } from "react";
-import * as SC from "./modalCart.styled"
+import * as SC from "./modal.styled"
 
-const modalCartRoot = document.querySelector("#modal-cart-root");
+const modalRoot = document.querySelector("#modal-root");
 
-export const ModalCart = ({children, toggleModal}) => {
+export const Modal = ({children, toggleModal}) => {
     
     const closeModal = (event) => {
         if(event.target === event.currentTarget){
@@ -34,6 +34,6 @@ export const ModalCart = ({children, toggleModal}) => {
                     X
                 </ SC.CloseBtn>
             </ SC.Inner>
-        </ SC.Overlay>, modalCartRoot
+        </ SC.Overlay>, modalRoot
     )
 };

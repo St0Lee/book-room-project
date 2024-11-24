@@ -14,7 +14,7 @@ export const Footer = () => {
             </SC.NavBarList>
             <ul>
                 <li>
-                    <a href="https://www.facebook.com">https://www.facebook.com</a>
+                    <a href="https://www.facebook.com" target="_blank">https://www.facebook.com</a> 
                 </li>
             </ul>
         </SC.Wrap>        

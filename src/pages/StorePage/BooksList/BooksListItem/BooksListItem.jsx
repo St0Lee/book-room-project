@@ -8,37 +8,37 @@ import { BuyButton } from "../../../../components/BuyButton/BuyButton";
 import { getFavorite, removeFromFavorite, setToFavorite  } from "../../../../redux/favorite/favorite-slice";
 
 
-export const BooksListItem = ({id, title, price, subtitle, img}) => {
+export const BooksListItem = ({_id, title, imageURL, price, category }) => {
 
     const dispatch = useDispatch();
     const favoriteItem = useSelector(getFavorite)
 
-    const isInFavorite = favoriteItem.find((favorite) => favorite.id === id)
+    const isInFavorite = favoriteItem.find((favorite) => favorite._id === _id)
     
-    const handleChangeFavorite = (id) => {
-        {isInFavorite ? dispatch(removeFromFavorite(id)) : dispatch(setToFavorite({id, title, price, subtitle, img}))  }
+    const handleChangeFavorite = (_id) => {
+        {isInFavorite ? dispatch(removeFromFavorite(_id)) : dispatch(setToFavorite({_id, title, price, category, imageURL}))  }
     }
 
     return(
         <li>
-            <Link to={`/books/${id}`}>
+            <Link to={`/books/${_id}`}>
                 <h2>{title}</h2>
-                <img src={img} alt={title}/>
+                <img width="300px" height="400px" src={imageURL} alt={title}/>
             </Link>
-            <h3>{subtitle}</h3>
+            {category.map((value) => <h3 key={value}>{value}</h3>) }
             <p>{price}</p>
-            <BuyButton id={id} title={title} price={price} subtitle={subtitle} img={img}/>
-            <button type="button"onClick={() => handleChangeFavorite(id)}>{isInFavorite ? <GoHeartFill /> : <GoHeart />}</button>
+            <BuyButton _id={_id} title={title} price={price} category ={category} imageURL={imageURL}/>
+            <button type="button"onClick={() => handleChangeFavorite(_id)}>{isInFavorite ? <GoHeartFill /> : <GoHeart />}</button>
         </li>
 )
 }
 
 BooksListItem.propTypes = {
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    subtitle: PropTypes.string,
-    img: PropTypes.string.isRequired,
+    category: PropTypes.array.string,
+    imageURL: PropTypes.string.isRequired,
 };
 
 BooksListItem.defaultProps = {
