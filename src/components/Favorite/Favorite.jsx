@@ -28,16 +28,17 @@ export const Favorite = () => {
             </SC.Btn>
             {isOpenModal && 
                 <Modal toggleModal={toggleModal}> 
-                   {favoriteList.map(({_id, title, price, category, imageURL}) => <li key={_id}>   
+                   {favoriteList.map(({_id, title, price, category, imageURL}) => <li key={_id}>
                         <SC.Title>{title}</SC.Title>
                         <p>${price}</p> 
                         {category.map((value) => <h3 key={value}>{value}</h3>) }
                         <img width="300px" src={imageURL}/>
-                        <button type="button" onClick={() => handleRemoveItem(_id)} >
+                        <button type="button" onClick={() => handleRemoveItem(_id)}>
                             Прибрати з Бажаного
-                        </button> 
+                        </button>
                     </li>)} 
-                </Modal>}
+                </Modal>
+            }
         </>
     )
-}
+};

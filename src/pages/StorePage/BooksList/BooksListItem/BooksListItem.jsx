@@ -36,8 +36,8 @@ export const BooksListItem = ({_id, title, imageURL, price, category }) => {
 BooksListItem.propTypes = {
     _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    category: PropTypes.array.string,
+    price: PropTypes.string.isRequired,
+    category: PropTypes.array.isRequired,
     imageURL: PropTypes.string.isRequired,
 };
 

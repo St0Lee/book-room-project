@@ -24,8 +24,8 @@ export const BuyButton = ({_id, title, price, category, imageURL}) => {
 BuyButton.propTypes = {
     _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    category: PropTypes.array.string,
+    price: PropTypes.string.isRequired,
+    category: PropTypes.array.isRequired,
     imageURL: PropTypes.string.isRequired,
 };
 

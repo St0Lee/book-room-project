@@ -6,7 +6,7 @@ import * as SC from "./booksList.styled"
 export const BooksList = () => {
     
     const {data} = useGetBooksQuery();
-    console.log(data)
+
     return(
         <SC.BooksList>
             {data?.result?.map(({_id, title, imageURL, price, category }) => 

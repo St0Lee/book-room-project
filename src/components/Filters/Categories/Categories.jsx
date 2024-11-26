@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
-import categories from "../../../data/categories.json"
+import PropTypes from "prop-types"
 
-export const Categories = () => {
+export const Categories = ({categoryItem}) => {
 
-    const [category, setCategory] = useState("Choose a category");
+    const [category, setCategory] = useState("Оберіть категорію");
     const [isCategory, setIsCategory] = useState(false);
 
     const handleOpenCategory = () => {
@@ -19,7 +19,11 @@ export const Categories = () => {
         <div onClick={handleOpenCategory}>
             <p>{category}</p>
             {isCategory ? <FaArrowUp size={20}/> : <FaArrowDown size={20}/>}
-            {isCategory && <ul>{categories.map(({id, text}) => <li key={id} onClick={handleChosenCategory}>{text}</li>)}</ul>}
+            {isCategory && <ul>{categoryItem?.map((value, i) => <li key={i} onClick={handleChosenCategory}>{value}</li>)}</ul>}
         </div>
     )
+};
+
+Categories.propTypes = {
+    categoryItem: PropTypes.array.isRequired,
 };
