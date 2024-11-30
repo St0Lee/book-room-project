@@ -14,7 +14,7 @@ export const Footer = () => {
             </SC.NavBarList>
             <ul>
                 <li>
-                    <a href="https://www.facebook.com" target="_blank">https://www.facebook.com</a> 
+                    <a href="https://www.instagram.com/book_room_ukr?igsh=MWhmdnVjYTQ4bDB6OQ==" target="_blank">Instagram</a> 
                 </li>
             </ul>
         </SC.Wrap>        
