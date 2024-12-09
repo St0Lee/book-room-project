@@ -13,9 +13,9 @@ export const booksAPI = createApi({
             providesTags: ["books"], 
         }),
         getBookById: builder.query({
-            query: () => ({
+            query: (id) => ({
                 method: "GET",
-                url: "/",
+                url: `/${id}`,
             }),
             providesTags: ["books"], 
         }),

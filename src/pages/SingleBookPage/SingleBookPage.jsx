@@ -1,20 +1,23 @@
 import { useParams } from "react-router-dom";
-import allBooks from "../../data/books.json"
+import {useGetBookByIdQuery} from "../../redux/bookOperations/bookOperations"
 import { BuyButton } from "../../components/BuyButton/BuyButton";
 
 export const SingleBookPage = () => {
+    const {id} = useParams();
 
-    const {id} = useParams()
+    const {data} = useGetBookByIdQuery(id);
+ 
+    if(!data) return
 
-    const {title, price, subtitle, img} = allBooks.find((value) => value.id === id)
-
+    const {title, imageURL, price, category, _id} = data.result;
+    
     return(
         <>
             <h2>{title}</h2>
             <h3>{price}</h3>
-            <p>{subtitle}</p>
-            <img src={img} alt={title}/>
-            <BuyButton id={id} title={title} price={price} subtitle={subtitle} img={img}/>            
+            <ul>{category.map((value, i) => <li key={i}>{value}</li>)}</ul>
+            <img src={imageURL} alt={title}/>
+            <BuyButton _id={_id} title={title} price={price} category={category} imageURL={imageURL}/>
         </>
         )
  };
