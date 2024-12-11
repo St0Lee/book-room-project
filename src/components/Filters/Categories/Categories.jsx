@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
+
+import * as SC from "./categories.styled"
+
 import PropTypes from "prop-types"
 
 export const Categories = ({categoryItem, onCategorySelect}) => {
@@ -23,10 +26,10 @@ export const Categories = ({categoryItem, onCategorySelect}) => {
     };
 
     return(
-        <div onClick={handleOpenCategory}>
-            <p>{category}</p>
+        <SC.Wrap onClick={handleOpenCategory}>
+            <SC.Category>{category}</SC.Category>
             {isCategory ? <FaArrowUp size={20}/> : <FaArrowDown size={20}/>}
-            {isCategory && <ul>
+            {isCategory && <SC.List>
                     <li onClick={handleShowAll}>
                         Усі категорії
                     </li>
@@ -35,8 +38,8 @@ export const Categories = ({categoryItem, onCategorySelect}) => {
                             {value}
                         </li>
                     ))}
-                </ul>}
-        </div>
+                </SC.List>}
+        </SC.Wrap>
     )
 };
 

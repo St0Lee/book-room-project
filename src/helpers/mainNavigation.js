@@ -5,16 +5,11 @@ export const mainNavigation = [{
 },
 {
     id:1, 
-    href: "/store",
-    text: "Магазин"
-},
-{
-    id:2, 
     href: "/about-us",
     text: "Про нас"
 },
 {
-    id:3, 
+    id:2, 
     href: "/contacts",
     text: "Контакти"
 }];

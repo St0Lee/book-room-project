@@ -19,6 +19,13 @@ export const booksAPI = createApi({
             }),
             providesTags: ["books"], 
         }),
+        // getBookByName: builder.query({
+        //     query: (title, id) => ({
+        //         method: "GET",
+        //         url: `/${id}`,
+        //     }),
+        //     providesTags: ["books"], 
+        // }),
         // updateBook: builder.mutation({
         //     query: () => ({
         //         method: "PATCH",

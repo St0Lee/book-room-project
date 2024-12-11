@@ -4,6 +4,7 @@ import * as SC from "./Footer.styled"
 export const Footer = () => {
     return(
         <SC.Wrap>
+            <p>Copyright © 2024 Книжкова кімната</p>
             <SC.NavBarList>
                 {footerNavigation.map(({id, href, text}) =>
                 <li key={id}>

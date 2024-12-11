@@ -4,7 +4,8 @@ import { NavLink } from "react-router-dom";
 export const Wrap = styled.div`
     display: flex;  
     background-color: ${props => props.theme.colors.primary};
-    justify-content: center;
+    justify-content: space-between;
+    padding: 30px;
 `
 export const NavLinkStyled = styled(NavLink)`
     color: ${props => props.theme.colors.text};

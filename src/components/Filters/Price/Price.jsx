@@ -1,4 +1,8 @@
 import { useState } from "react"
+import PropTypes from "prop-types"
+
+import * as SC from "./price.styled"
+
 
 export const Price = ({bookPrice, onMinPriceSelect, onMaxPriceSelect}) => {
     const [minPrice, setMinPrice] = useState(0)
@@ -22,10 +26,17 @@ export const Price = ({bookPrice, onMinPriceSelect, onMaxPriceSelect}) => {
     }
 
     return(
-            <div>
-            <input name="Min" type="text" value={minPrice} onChange={handleInput}/>
-                {/* number always leaves 0 cannot be erased */}
-            <input name="Max" type="text" value={maxPrice} onChange={handleInput}/>
-        </div>
+        <SC.Wrap>
+            <SC.Text>Від:</SC.Text>
+            <SC.Input name="Min" type="text" value={minPrice} onChange={handleInput}/>
+            <SC.Text>До:</SC.Text>     
+            <SC.Input name="Max" type="text" value={maxPrice} onChange={handleInput}/>
+        </SC.Wrap>
     )
 };
+
+Price.propTypes = {
+    bookPrice: PropTypes.number,
+    onMinPriceSelect: PropTypes.func.isRequired,
+    onMaxPriceSelect: PropTypes.func.isRequired
+}

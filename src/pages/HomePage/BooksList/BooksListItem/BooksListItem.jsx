@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { GoHeart, GoHeartFill } from "react-icons/go";
 import PropTypes from "prop-types";
+
+import * as SC from "./booksListItem.styled"
 
 import { BuyButton } from "../../../../components/BuyButton/BuyButton";
 
@@ -21,10 +22,10 @@ export const BooksListItem = ({_id, title, imageURL, price, category }) => {
 
     return(
         <li>
-            <Link to={`/books/${_id}`}>
+            <SC.ContentLink to={`/books/${_id}`}>
                 <h2>{title}</h2>
-                <img width="300px" height="400px" src={imageURL} alt={title}/>
-            </Link>
+                <SC.Img  src={imageURL} alt={title}/>
+            </SC.ContentLink>
             {category.map((value) => <h3 key={value}>{value}</h3>) }
             <p>{price}</p>
             <BuyButton _id={_id} title={title} price={price} category ={category} imageURL={imageURL}/>
