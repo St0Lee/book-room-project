@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import background from "../../common/images/books-1655783_1920.jpg"
 
 export const StoreWrap = styled.div`
     display: flex;
@@ -6,12 +7,14 @@ export const StoreWrap = styled.div`
     gap: 100px;
 `
 
-export const Img = styled.img` 
+export const Background = styled.div`
     width: 80vw;
-    max-height: 400px;
+    height: 400px;
     overflow: hidden;
+    background-image: url(${background});
+    background-size: cover;
+    background-position: center;
 `
-//overflow не працює. Окремий контейнер і застосувати як бекграунд? 
 
 export const Container = styled.div`
     display: flex;

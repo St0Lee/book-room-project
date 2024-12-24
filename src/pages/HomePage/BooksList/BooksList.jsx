@@ -1,14 +1,12 @@
 import { BooksListItem } from "./BooksListItem/BooksListItem";
-import { useGetBooksQuery } from "../../../redux/bookOperations/bookOperations";
+// import { useGetBooksQuery } from "../../../redux/bookOperations/bookOperations";
 
 import PropTypes from "prop-types"
 
 import * as SC from "./booksList.styled"
 
-export const BooksList = ({selectedCategory, selectedMinPrice, selectedMaxPrice}) => {
+export const BooksList = ({data, selectedCategory, selectedMinPrice, selectedMaxPrice}) => {
     
-    const {data} = useGetBooksQuery();
-
     const filteredBooks = data?.result?.filter((book) => {
         const matchesCategory = selectedCategory ? book.category.includes(selectedCategory) : true;
         const matchesMinPrice = selectedMinPrice ? book.price >= selectedMinPrice : true;

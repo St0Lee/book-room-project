@@ -36,7 +36,7 @@ export const Price = ({bookPrice, onMinPriceSelect, onMaxPriceSelect}) => {
 };
 
 Price.propTypes = {
-    bookPrice: PropTypes.number,
+    bookPrice: PropTypes.array,
     onMinPriceSelect: PropTypes.func.isRequired,
     onMaxPriceSelect: PropTypes.func.isRequired
 }

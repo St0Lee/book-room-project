@@ -6,9 +6,9 @@ export const booksAPI = createApi({
     tagTypes: ["books"],
     endpoints: builder => ({
         getBooks: builder.query({
-            query: () => ({
+            query: (name) => ({
                 method: "GET",
-                url: "/",
+                url: name ? `/name?title=${name}` : "/",
             }),
             providesTags: ["books"], 
         }),
@@ -20,12 +20,14 @@ export const booksAPI = createApi({
             providesTags: ["books"], 
         }),
         // getBookByName: builder.query({
-        //     query: (title, id) => ({
+        //     query: (name) => ({
         //         method: "GET",
-        //         url: `/${id}`,
+        //         url: `/name`,
+        //         body: {title: name}
         //     }),
         //     providesTags: ["books"], 
         // }),
+
         // updateBook: builder.mutation({
         //     query: () => ({
         //         method: "PATCH",

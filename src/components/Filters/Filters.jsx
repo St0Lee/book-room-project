@@ -7,9 +7,9 @@ import PropTypes from "prop-types"
 
 import * as SC from "./filters.styled"
 
-export const Filters = ({onCategorySelect, onMinPriceSelect, onMaxPriceSelect}) => {
+export const Filters = ({keyword, onHandleSearch, onCategorySelect, onMinPriceSelect, onMaxPriceSelect}) => {
 
-    const {data} = useGetBooksQuery();
+    const {data} = useGetBooksQuery(null);
 
     const allCategories = data?.result?.flatMap(({ category }) => category);
     const uniqueCategories = [...new Set(allCategories)];
@@ -19,7 +19,7 @@ export const Filters = ({onCategorySelect, onMinPriceSelect, onMaxPriceSelect}) 
     return(
     <SC.Filters>  
         <Price onMinPriceSelect={onMinPriceSelect} onMaxPriceSelect={onMaxPriceSelect} bookPrice={bookPrice} />
-        <SearchBar />
+        <SearchBar keyword={keyword} onHandleSearch={onHandleSearch} />
         <Categories onCategorySelect={onCategorySelect} categoryItem={uniqueCategories}/>
     </SC.Filters>
 )};

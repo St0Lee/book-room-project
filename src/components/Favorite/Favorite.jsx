@@ -24,7 +24,7 @@ export const Favorite = () => {
     return(
         <>
             <SC.Btn onClick={toggleModal}>
-                <GoHeart size={42} />
+                <GoHeart size={42}/>
             </SC.Btn>
             {isOpenModal && 
                 <Modal toggleModal={toggleModal}> 

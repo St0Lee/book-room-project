@@ -9,11 +9,21 @@ export const Count = styled.p`
 `;
 
 export const Btn = styled.button`
-    background-color: white;
+    background-color: transparent;
     color: ${props => props.theme.colors.text};
     padding: 0;
     width: 42px;
     height: 42px;
+    border: none;
+    :hover{
+        color: red;
+    }
+    :active{
+        color: green;
+        border: none;
+    }
 `
+
+//заповнити серце? Бордер при натисканні
 
 

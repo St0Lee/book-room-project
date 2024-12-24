@@ -8,7 +8,7 @@ export const Wrap  = styled.div`
 `
 export const Category = styled.p`
 
-    :hover{
+    &:hover{
         color: yellow;
     }
 `
