@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 
+import { CategoriesItem } from "./CategoriesItem/CategoriesItem";
+
 import * as SC from "./categories.styled"
 
 import PropTypes from "prop-types"
+
 
 export const Categories = ({categoryItem, onCategorySelect}) => {
 
@@ -28,17 +31,17 @@ export const Categories = ({categoryItem, onCategorySelect}) => {
     return(
         <SC.Wrap onClick={handleOpenCategory}>
             <SC.Category>{category}</SC.Category>
-            {isCategory ? <FaArrowUp size={20}/> : <FaArrowDown size={20}/>}
-            {isCategory && <SC.List>
-                    <li onClick={handleShowAll}>
+            <SC.Button type="button">
+                {isCategory ? <FaArrowUp size={20}/> : <FaArrowDown size={20}/>}
+            </SC.Button>
+            {isCategory && <ul>
+                    <SC.Item onClick={handleShowAll}>
                         Усі категорії
-                    </li>
+                    </SC.Item>
                     {categoryItem?.map((value, i) => (
-                        <li key={i} onClick={handleChosenCategory}>
-                            {value}
-                        </li>
+                     <CategoriesItem categoryItem={value} key={i} onHandleChosenCategory={handleChosenCategory}/>   
                     ))}
-                </SC.List>}
+                </ul>}
         </SC.Wrap>
     )
 };

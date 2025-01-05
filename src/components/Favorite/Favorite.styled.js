@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { GoHeartFill } from "react-icons/go";
+
 export const Title = styled.h2`
     color: black;
 `;
@@ -8,7 +10,7 @@ export const Count = styled.p`
     color: black;
 `;
 
-export const Btn = styled.button`
+export const Btn = styled(GoHeartFill)`
     background-color: transparent;
     color: ${props => props.theme.colors.text};
     padding: 0;
@@ -17,12 +19,15 @@ export const Btn = styled.button`
     border: none;
     :hover{
         color: red;
+        background-color: red;
     }
     :active{
         color: green;
         border: none;
     }
 `
+
+
 
 //заповнити серце? Бордер при натисканні
 

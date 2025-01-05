@@ -1,20 +1,35 @@
 import styled from "styled-components"
 
 export const Wrap  = styled.div`
-    cursor: pointer;
-    :hover{
-        color: red;
-    }
-`
-export const Category = styled.p`
 
+`
+
+export const Button = styled.button`
+    background: transparent;
+    color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:focus{
+        outline: none;  
+    }
+    &:hover{
+        color: red;
+    }   
+`
+
+export const Category = styled.p`
+    cursor: pointer;
     &:hover{
         color: yellow;
     }
 `
 
-export const List  = styled.ul`
-    :hover{
+export const Item  = styled.li`
+    cursor: pointer;
+    &:hover{
         color: yellow;
     }
 `
+

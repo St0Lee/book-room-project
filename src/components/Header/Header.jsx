@@ -42,3 +42,5 @@ export const Header = () => {
 //Обране - modal
 
 //Категорії - підкатегорії
+
+// fixed container

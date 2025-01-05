@@ -1,4 +1,4 @@
-import { GoHeart } from "react-icons/go";
+
 import { useState } from "react";
 import { Modal } from "../Modal/Modal";
 import { getFavorite, removeFromFavorite } from "../../redux/favorite/favorite-slice";
@@ -23,9 +23,7 @@ export const Favorite = () => {
 
     return(
         <>
-            <SC.Btn onClick={toggleModal}>
-                <GoHeart size={42}/>
-            </SC.Btn>
+                <SC.Btn onClick={toggleModal}/>
             {isOpenModal && 
                 <Modal toggleModal={toggleModal}> 
                    {favoriteList.map(({_id, title, price, category, imageURL}) => <li key={_id}>
