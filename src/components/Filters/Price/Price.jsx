@@ -8,12 +8,8 @@ export const Price = ({bookPrice, onMinPriceSelect, onMaxPriceSelect}) => {
     const [minPrice, setMinPrice] = useState(0)
     const [maxPrice, setMaxPrice] = useState(1000)
 
-    // const minAmount = Math.min(...(bookPrice || [0]));
-    // const maxAmount = Math.max(...(bookPrice || [0]));
-
     const handleInput = (e) => {
         const { name, value } = e.target;
-        // e.target.name === "Min" ? setMinPrice(e.target.value) : setMaxPrice(e.target.value) converted numbers to string so filter worked not as intended
         const numericValue = Number(value);
 
         if (name === "Min") {

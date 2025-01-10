@@ -6,6 +6,7 @@ import { Modal } from "../Modal/Modal";
 import { getCarts, removeFromCart, changeCountCart } from "../../redux/cart/cart-slice";
 import { useDispatch, useSelector } from "react-redux";
 import * as SC from "./shopCart.styled"
+import { NavLink } from "react-router-dom";
 
 export const ShopCart = () => {
     
@@ -51,6 +52,9 @@ export const ShopCart = () => {
                             Видалити з корзини
                         </button> 
                     </li>)} 
+                        <NavLink to="/checkout">
+                            Оформити замовлення
+                        </NavLink>
                 </ Modal>}
         </>
     )

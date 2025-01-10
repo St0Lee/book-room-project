@@ -4,6 +4,7 @@ import { NotFoundPage } from "../../pages/NotFoundPage/NotFoundPage";
 import { Contacts } from "../../pages/ContactsPage/ContactsPage";
 import { AboutUsPage } from "../../pages/AboutUsPage/AboutUsPage";
 import { ReturnPolicy } from "../../pages/ReturnPolicy/ReturnPolicy";
+import { CheckoutPage } from "../../pages/CheckoutPage/CheckoutPage";
 
 import { Layout } from "../../components/Layout/Layout";
 import { ConfidentialityPolicy } from "../../pages/ConfidentialityPolicy/ConfidentialityPolicy";
@@ -35,9 +36,16 @@ export const routes = [
         },
         {
         element: <AboutUsPage />,
-            path: "/about-us"},
+            path: "/about-us"
+        },
         {
         element: <NotFoundPage />,
-            path: "*"}]
+            path: "*"
+        },
+        {
+            element: <CheckoutPage />,
+            path: "/checkout"
+        },]
+            
     }
 ];
