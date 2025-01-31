@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { cartSlice } from "./cart/cart-slice";
 import { favoriteSlice } from "./favorite/favorite-slice";
 import { booksAPI } from "./bookOperations/bookOperations";
+import { novaPostAPI } from "./NovaPostOperations/novaPostOperations";
 
 import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
@@ -16,8 +17,6 @@ import {
     REGISTER,
   } from "redux-persist";
 
-
-
 const cartPersistConfig = {
     key: "cart",
     storage,
@@ -30,13 +29,15 @@ const favoritePersistConfig = {
   whitelist: ["favorite"],
 }
 
+
 const middleware = getDefaultMiddleware => [
     ...getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-    booksAPI.middleware
+    booksAPI.middleware,
+    novaPostAPI.middleware
 ];
 
 export const store = configureStore({
@@ -44,6 +45,7 @@ export const store = configureStore({
         [cartSlice.name]: persistReducer(cartPersistConfig, cartSlice.reducer),
         [favoriteSlice.name]: persistReducer(favoritePersistConfig, favoriteSlice.reducer),
         [booksAPI.reducerPath]: booksAPI.reducer,
+        [novaPostAPI.reducerPath]: novaPostAPI.reducer,
       },
     middleware
 });

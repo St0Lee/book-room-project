@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Checkout } from "../../components/Checkout/Checkout"
+import { useGetByCityNameMutation } from "../../redux/NovaPostOperations/novaPostOperations"
 
 export const CheckoutPage = () => {
 
@@ -7,7 +8,10 @@ export const CheckoutPage = () => {
     const [surname, setSurname] = useState("")
     const [phone, setPhone] = useState("")
     const [email, setEmail] = useState("")
-    
+    const [cityName, setCityName] = useState("")
+
+    const [getCities] = useGetByCityNameMutation();
+
     const handleOnChange = (e) => {
         const {value, name} = e.target
         switch(name){
@@ -23,6 +27,9 @@ export const CheckoutPage = () => {
             case "email": 
                 setEmail(value)
                 return
+            case "cityName":
+                setCityName(value)
+                getCities(value)
             default: 
                 return
         }
@@ -31,7 +38,7 @@ export const CheckoutPage = () => {
 
     return(
         <>
-            <Checkout name={name} surname={surname} phone={phone} email={email} handleOnChange={handleOnChange}/>
+            <Checkout name={name} surname={surname} phone={phone} email={email} cityName={cityName} handleOnChange={handleOnChange}/>
         </>
     )
 }

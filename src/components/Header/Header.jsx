@@ -8,7 +8,6 @@ import logo from "../../common/images/logo-placeholder-image.png"
 
 import * as SC from "./Header.styled.js"
 
-
 export const Header = () => {
    return (
     <SC.NavBar>
@@ -45,5 +44,8 @@ export const Header = () => {
 
 // fixed container
 
-// зареєструвати на НП 
 // створити окрему БД
+// 2 запити в RTKQuery
+// Drupal
+// Docker
+// GraphQL API
