@@ -1,5 +1,4 @@
 import { BooksListItem } from "./BooksListItem/BooksListItem";
-// import { useGetBooksQuery } from "../../../redux/bookOperations/bookOperations";
 
 import PropTypes from "prop-types"
 
