@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Wrap = styled.form`
+    display: flex;
+    justify-content: space-between;
+`
+
+
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
@@ -10,6 +16,14 @@ export const Text = styled.label`
     display: flex;
     flex-direction: column;
     max-width: 200px;
+`
+
+export const BookList = styled.ul`
+
+`
+
+export const BookListItem = styled.li`
+    display: flex;
 `
 
 export const CitiesListWrap = styled.div`
@@ -29,5 +43,5 @@ export const CitiesList = styled.ul`
     max-height: 150px;
     overflow-y: auto;
 `
-export const Wrap = styled.form`
-`
+
+

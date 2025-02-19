@@ -52,7 +52,7 @@ export const ShopCart = () => {
                             Видалити з корзини
                         </button> 
                     </li>)} 
-                        <NavLink to="/checkout">
+                        <NavLink to="/checkout" onClick={toggleModal}>
                             Оформити замовлення
                         </NavLink>
                 </ Modal>}
