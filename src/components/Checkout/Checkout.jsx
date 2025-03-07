@@ -1,10 +1,15 @@
 import { useEffect, useRef } from "react";
 import * as SC from "./Checkout.styled";
+
 import { useSelector } from "react-redux";
 import { getCarts } from "../../redux/cart/cart-slice";
+import { useAddOrderMutation } from "../../redux/orderOperations/orderOperations";
 
-export const Checkout = ({ name, surname, phone, email, cityName, cities, showDropdown, handleOnChange, handleSelectCity, setShowDropdown }) => {
+export const Checkout = ({ name, surname, phone, email, comment, cityName, cities, showDropdown, handleOnChange, handleSelectCity, setShowDropdown }) => {
     const books = useSelector(getCarts);
+    
+    const [addOrder] = useAddOrderMutation();
+
 
     const dropdownRef = useRef(null);
 
@@ -21,13 +26,11 @@ export const Checkout = ({ name, surname, phone, email, cityName, cities, showDr
         };
     }, [setShowDropdown]);
 
-    const handleSubmit = () => {
-        console.log("Submitted")
-    }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        addOrder({ name, surname, phone, email, cityName})
+    } 
     
-
-
-
     return (
         <SC.Wrap>
             <SC.Form onSubmit={handleSubmit}>
@@ -60,7 +63,7 @@ export const Checkout = ({ name, surname, phone, email, cityName, cities, showDr
                 </SC.CitiesListWrap>
                 <SC.Text>
                     Коментар до замовлення
-                    <textarea name="comment" rows={4} cols={20} placeholder="Додайте ваш коментар" />
+                    <textarea name="comment" onChange={handleOnChange} value={comment} rows={4} cols={20} placeholder="Додайте ваш коментар" />
                 </SC.Text>
                 <button type="submit" disabled={!name || !surname || !phone}>
                     Замовити
@@ -78,4 +81,3 @@ export const Checkout = ({ name, surname, phone, email, cityName, cities, showDr
         </SC.Wrap>
     );
 };
-

@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Checkout } from "../../components/Checkout/Checkout";
-import { useGetByCityNameMutation } from "../../redux/NovaPostOperations/novaPostOperations";
+import { useGetByCityNameMutation } from "../../redux/novaPostOperations/novaPostOperations";
 
 export const CheckoutPage = () => {
     const [name, setName] = useState("");
@@ -8,6 +8,7 @@ export const CheckoutPage = () => {
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [cityName, setCityName] = useState("");
+    const [comment, setComment] = useState("");
     const [showDropdown, setShowDropdown] = useState(false);
 
     const [getCities, { data }] = useGetByCityNameMutation();
@@ -26,6 +27,9 @@ export const CheckoutPage = () => {
                 return;
             case "email":
                 setEmail(value);
+                return;
+            case "comment":
+                setComment(value);
                 return;
             case "cityName":
                 setCityName(value);
@@ -49,6 +53,7 @@ export const CheckoutPage = () => {
             phone={phone} 
             email={email} 
             cityName={cityName} 
+            comment={comment}
             cities={data?.data || []} 
             showDropdown={showDropdown}
             handleOnChange={handleOnChange} 
