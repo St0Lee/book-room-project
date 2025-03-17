@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { cartSlice } from "./cart/cart-slice";
 import { favoriteSlice } from "./favorite/favorite-slice";
 import { booksAPI } from "./bookOperations/bookOperations";
-import { novaPostAPI } from "./novaPostOperations/novaPostOperations";
+import { novaPostAPI } from "./NovaPostOperations/novaPostOperations";
 import { orderAPI } from "./orderOperations/orderOperations";
 
 import storage from "redux-persist/lib/storage";

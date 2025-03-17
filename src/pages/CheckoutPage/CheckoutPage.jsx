@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Checkout } from "../../components/Checkout/Checkout";
-import { useGetByCityNameMutation } from "../../redux/novaPostOperations/novaPostOperations";
+import { useGetByCityNameMutation, useGetWarehousesMutation } from "../../redux/NovaPostOperations/novaPostOperations";
 
 export const CheckoutPage = () => {
     const [name, setName] = useState("");
@@ -10,8 +10,12 @@ export const CheckoutPage = () => {
     const [cityName, setCityName] = useState("");
     const [comment, setComment] = useState("");
     const [showDropdown, setShowDropdown] = useState(false);
+    const [warehouseName, setWarehouseName] = useState("");
+    const [showWarehouseDropdown, setShowWarehouseDropdown] = useState(false);
+
 
     const [getCities, { data }] = useGetByCityNameMutation();
+    const [getWarehouses, { data: warehouses }] = useGetWarehousesMutation();
 
     const handleOnChange = (e) => {
         const { value, name } = e.target;
@@ -36,6 +40,11 @@ export const CheckoutPage = () => {
                 getCities(value);
                 setShowDropdown(true);
                 return;
+            case "warehouseName":
+                setWarehouseName(value);
+                getWarehouses(value);
+                setShowWarehouseDropdown(true);
+                return;
             default:
                 return;
         }
@@ -46,6 +55,11 @@ export const CheckoutPage = () => {
         setShowDropdown(false);
     };
 
+    const handleSelectWarehouse = (selectedWarehouse) => {
+        setWarehouseName(selectedWarehouse);
+        setShowWarehouseDropdown(false);
+    };
+
     return (
         <Checkout 
             name={name} 
@@ -54,11 +68,16 @@ export const CheckoutPage = () => {
             email={email} 
             cityName={cityName} 
             comment={comment}
-            cities={data?.data || []} 
+            cities={data?.data || []}
+            warehouseName={warehouseName}
+            warehouses={warehouses?.data || []}
+            showWarehouseDropdown={showWarehouseDropdown}
             showDropdown={showDropdown}
             handleOnChange={handleOnChange} 
             handleSelectCity={handleSelectCity}
+            handleSelectWarehouse={handleSelectWarehouse}
             setShowDropdown={setShowDropdown}
+            setShowWarehouseDropdown={setShowWarehouseDropdown}
         />
     );
 };

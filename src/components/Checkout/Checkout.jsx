@@ -5,11 +5,10 @@ import { useSelector } from "react-redux";
 import { getCarts } from "../../redux/cart/cart-slice";
 import { useAddOrderMutation } from "../../redux/orderOperations/orderOperations";
 
-export const Checkout = ({ name, surname, phone, email, comment, cityName, cities, showDropdown, handleOnChange, handleSelectCity, setShowDropdown }) => {
+export const Checkout = ({ name, surname, phone, email, comment, cityName, warehouseName, warehouses, cities, showDropdown, handleOnChange, handleSelectCity, handleSelectWarehouse, setShowDropdown, showWarehouseDropdown, setShowWarehouseDropdown }) => {
     const books = useSelector(getCarts);
-    
-    const [addOrder] = useAddOrderMutation();
 
+    const [addOrder] = useAddOrderMutation();
 
     const dropdownRef = useRef(null);
 
@@ -17,18 +16,18 @@ export const Checkout = ({ name, surname, phone, email, comment, cityName, citie
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setShowDropdown(false);
+                setShowWarehouseDropdown(false);
             }
         };
-
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [setShowDropdown]);
+    }, [setShowDropdown, setShowWarehouseDropdown]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        addOrder({ name, surname, phone, email, cityName})
+        await addOrder({ name, surname, phone, email, cityName, warehouseName, comment, order: books})
     } 
     
     return (
@@ -47,6 +46,13 @@ export const Checkout = ({ name, surname, phone, email, comment, cityName, citie
                         onChange={handleOnChange} 
                         placeholder="Місто"
                     />
+                    <input 
+                        type="text" 
+                        value={warehouseName} 
+                        name="warehouseName" 
+                        onChange={handleOnChange} 
+                        placeholder="Відділення"
+                    />
                     
                     {showDropdown && cityName !== "" && cities.length > 0 && (
                         <SC.CitiesList>
@@ -59,6 +65,18 @@ export const Checkout = ({ name, surname, phone, email, comment, cityName, citie
                                 </li>
                             ))}
                         </SC.CitiesList>
+                    )}
+                    {showWarehouseDropdown &&warehouseName !== "" && warehouses.length > 0 && (
+                        <SC.WarehousesList>
+                             {warehouses.map(warehouse => (
+                                <li 
+                                    key={warehouse.Ref} 
+                                    onClick={() => handleSelectWarehouse(warehouse.Description)}
+                                >
+                                    {warehouse.Description}
+                                </li>
+                            ))}
+                        </SC.WarehousesList>
                     )}
                 </SC.CitiesListWrap>
                 <SC.Text>

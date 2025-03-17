@@ -21,7 +21,27 @@ export const novaPostAPI = createApi({
             }),
                 invalidatesTags: ["novaPostAPI"], 
         }),
+        getWarehouses: builder.mutation({
+            query: ({cityName, warehouseAddress}) => ({
+                method: "POST",
+                url: "/",
+                body:
+                    {
+                       apiKey: "42bd5979093263382a203101c2299487",
+                       modelName: "AddressGeneral",
+                       calledMethod: "getWarehouses",
+                       methodProperties: {    
+                            CityName : cityName,
+                            FindByString : warehouseAddress,
+                            // Page : "1",
+                            // Limit : "50",
+                            Language : "UA"
+                       }     
+                }
+            }),
+                invalidatesTags: ["novaPostAPI"], 
+        })
     }),
 })
 
-export const {useGetByCityNameMutation} = novaPostAPI;
+export const {useGetByCityNameMutation, useGetWarehousesMutation } = novaPostAPI;
