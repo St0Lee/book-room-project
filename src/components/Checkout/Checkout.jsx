@@ -4,6 +4,8 @@ import * as SC from "./Checkout.styled";
 import { useSelector } from "react-redux";
 import { getCarts } from "../../redux/cart/cart-slice";
 import { useAddOrderMutation } from "../../redux/orderOperations/orderOperations";
+import { DeliveryOption } from "./DeliveryOption/DeliveryOption";
+
 
 export const Checkout = ({ name, surname, phone, email, comment, cityName, warehouseName, warehouses, cities, showDropdown, handleOnChange, handleSelectCity, handleSelectWarehouse, setShowDropdown, showWarehouseDropdown, setShowWarehouseDropdown }) => {
     const books = useSelector(getCarts);
@@ -38,47 +40,19 @@ export const Checkout = ({ name, surname, phone, email, comment, cityName, wareh
                 <input type="text" value={phone} name="phone" onChange={handleOnChange} placeholder="Номер телефону"/>
                 <input type="email" value={email} name="email" onChange={handleOnChange} placeholder="Email"/>
 
-                <SC.CitiesListWrap ref={dropdownRef}>
-                    <input 
-                        type="text" 
-                        value={cityName} 
-                        name="cityName" 
-                        onChange={handleOnChange} 
-                        placeholder="Місто"
-                    />
-                    <input 
-                        type="text" 
-                        value={warehouseName} 
-                        name="warehouseName" 
-                        onChange={handleOnChange} 
-                        placeholder="Відділення"
-                    />
-                    
-                    {showDropdown && cityName !== "" && cities.length > 0 && (
-                        <SC.CitiesList>
-                            {cities.map(city => (
-                                <li 
-                                    key={city.Ref} 
-                                    onClick={() => handleSelectCity(city.Description)}
-                                >
-                                    {city.Description}
-                                </li>
-                            ))}
-                        </SC.CitiesList>
-                    )}
-                    {showWarehouseDropdown &&warehouseName !== "" && warehouses.length > 0 && (
-                        <SC.WarehousesList>
-                             {warehouses.map(warehouse => (
-                                <li 
-                                    key={warehouse.Ref} 
-                                    onClick={() => handleSelectWarehouse(warehouse.Description)}
-                                >
-                                    {warehouse.Description}
-                                </li>
-                            ))}
-                        </SC.WarehousesList>
-                    )}
-                </SC.CitiesListWrap>
+                <DeliveryOption 
+                dropdownRef={dropdownRef} 
+                cityName={cityName} 
+                handleOnChange={handleOnChange} 
+                warehouseName={warehouseName} 
+                showDropdown={showDropdown} 
+                warehouses={warehouses} 
+                cities={cities}
+                showWarehouseDropdown={showWarehouseDropdown}
+                handleSelectCity={handleSelectCity}
+                handleSelectWarehouse={handleSelectWarehouse}
+                />
+                
                 <SC.Text>
                     Коментар до замовлення
                     <textarea name="comment" onChange={handleOnChange} value={comment} rows={4} cols={20} placeholder="Додайте ваш коментар" />
